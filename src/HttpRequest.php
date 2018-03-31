@@ -14,10 +14,8 @@ class HttpRequest
 
     // 当前实例
     private $cu;
-
     // 超时时间
     private $timeout = 10;
-
     /**
      * 构造函数
      * HttpRequest constructor.
