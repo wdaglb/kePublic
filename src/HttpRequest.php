@@ -108,6 +108,18 @@ class HttpRequest
     }
 
     /**
+     * 设置请求url
+     * @param $url
+     * @param array $query
+     * @return $this
+     */
+    public function url($url, array $query = [])
+    {
+        curl_setopt($this->cu, CURLOPT_URL, $url . (empty($query) ? '' : '?' . http_build_query($query)));
+        return $this;
+    }
+
+    /**
      * 执行请求
      * @return mixed
      */
