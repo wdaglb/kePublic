@@ -23,7 +23,7 @@ class Tools
             return false;
         }
         $replace = function ($str) {
-            return '/' . str_replace(['/', '*'], ["\/", '.+?'], $str) . '/';
+            return '/^' . str_replace(['/', '*'], ["\/", '.+?'], $str) . '$/';
         };
 
         foreach ($li as $g) {
