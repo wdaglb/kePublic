@@ -5,6 +5,8 @@
 // | Author: King east <1207877378@qq.com>
 // +----------------------------------------------------------------------
 
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 require '../vendor/autoload.php';
 try {
     $http = new \ke\HttpRequest('http://huawei.cysmsc.cn');
@@ -16,3 +18,10 @@ try {
 }catch (Exception $e) {
     var_dump($e->getMessage());
 }
+
+echo '<p>手机号验证</p>';
+
+// $phone = ['18377700000', '2345649687'];
+$phone = '2345649687';
+
+var_dump(check_mobile($phone));

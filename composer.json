@@ -8,6 +8,9 @@
     ],
     "require": {},
     "autoload": {
-        "psr-4": {"ke\\": "src/"}
+        "psr-4": {"ke\\": "src/"},
+        "files": [
+            "src/helper.php"
+        ]
     }
 }
