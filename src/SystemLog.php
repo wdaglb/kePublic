@@ -22,7 +22,7 @@ class SystemLog
 
     private static function setPath($type)
     {
-        if ($type)
+        if (!self::$root)
             throw new \Exception('root未设置');
         self::$path = self::$root . 'systemlog/' . $type . '/' . date('Ymd') . '/';
         if (!is_dir(self::$path))
