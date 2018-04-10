@@ -15,7 +15,7 @@ class SystemLog
     private static $root;
     private static $path = '';
 
-    private static function init($root)
+    public static function init($root)
     {
         self::$root = $root;
     }
