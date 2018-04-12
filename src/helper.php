@@ -126,3 +126,28 @@ if (!function_exists('get_parent_list')) {
         return $pathKeys;
     }
 }
+
+
+if (!function_exists('get_children_list')) {
+
+    /**
+     * 获取父节点的所有子节点id
+     * @param array $list 遍历的数组
+     * @param string $id 遍历内容
+     * @param string $pk 遍历字段名
+     * @param string $pkn 上级关联字段
+     * @return array
+     */
+
+    function get_children_list($array, $id, $pk = 'id', $pkn = 'pid')
+    {
+        $arr = array();
+        foreach ($array as $v) {
+            if ($v[$pkn] == $id) {
+                $arr[] = $v[$pk];
+                $arr = array_merge($arr, get_children_list($array, $v[$pk], $pk, $pkn));
+            };
+        };
+        return $arr;
+    }
+}
