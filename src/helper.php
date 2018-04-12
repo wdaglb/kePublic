@@ -128,6 +128,7 @@ if (!function_exists('get_parent_list')) {
 }
 
 
+
 if (!function_exists('get_children_list')) {
 
     /**
@@ -141,11 +142,11 @@ if (!function_exists('get_children_list')) {
 
     function get_children_list($array, $id, $pk = 'id', $pkn = 'pid')
     {
-        $arr = array();
+        $arr = array($id);
         foreach ($array as $v) {
             if ($v[$pkn] == $id) {
                 $arr[] = $v[$pk];
-                $arr = array_merge($arr, get_children_list($array, $v[$pk], $pk, $pkn));
+                $arr = array_unique(array_merge($arr, get_children_list($array, $v[$pk], $pk, $pkn)));
             };
         };
         return $arr;
