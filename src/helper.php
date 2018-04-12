@@ -97,3 +97,32 @@ if (!function_exists('rand_letter')) {
         return $ret;
     }
 }
+
+
+
+if (!function_exists('get_parent_list')) {
+
+    /**
+     * 深度优先遍历查找一个树形结构中，某个节点的所在位置
+     * @param array $list 遍历的数组
+     * @param string $id 遍历内容
+     * @param string $pk 遍历字段名
+     * @param string $pkn 上级关联字段
+     * @return array
+     */
+    function get_parent_list($list, $id, $pk = 'id', $pkn = 'pid', $pathKeys = [])
+    {
+        if (count($pathKeys) == 0)
+            $pathKeys[] = $id;
+        foreach ($list as $g) {
+            if ($g[$pk] == $id) {
+                if ($g[$pkn] == 0) {
+                    return $pathKeys;
+                }
+                array_unshift($pathKeys, $g[$pkn]);
+                $pathKeys = get_parent_list($list, $g[$pkn], $pk, $pkn, $pathKeys);
+            }
+        }
+        return $pathKeys;
+    }
+}
