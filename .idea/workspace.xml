@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf6ba56f-7918-477c-bafc-4abadcef9024" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Cache.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/driver/Redis.php" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/tests/index.php" afterPath="$PROJECT_DIR$/tests/index.php" />
+      <change beforePath="$PROJECT_DIR$/src/Cache.php" afterPath="$PROJECT_DIR$/src/Cache.php" />
+      <change beforePath="$PROJECT_DIR$/src/driver/Redis.php" afterPath="$PROJECT_DIR$/src/driver/Redis.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,8 +20,8 @@
       <file leaf-file-name="Cache.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Cache.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+            <state relative-caret-position="130">
+              <caret line="14" column="41" lean-forward="false" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -44,8 +42,8 @@
       <file leaf-file-name="Redis.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/driver/Redis.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+            <state relative-caret-position="39">
+              <caret line="16" column="19" lean-forward="true" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -72,9 +70,9 @@
         <option value="$PROJECT_DIR$/src/SystemLog.php" />
         <option value="$PROJECT_DIR$/src/helper.php" />
         <option value="$PROJECT_DIR$/src/Redis.php" />
-        <option value="$PROJECT_DIR$/src/driver/Redis.php" />
         <option value="$PROJECT_DIR$/tests/index.php" />
         <option value="$PROJECT_DIR$/src/Cache.php" />
+        <option value="$PROJECT_DIR$/src/driver/Redis.php" />
       </list>
     </option>
   </component>
@@ -199,12 +197,12 @@
       <workItem from="1523866496799" duration="61000" />
       <workItem from="1523867464205" duration="87000" />
       <workItem from="1523867565545" duration="3022000" />
-      <workItem from="1523870604845" duration="1570000" />
+      <workItem from="1523870604845" duration="1667000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12047000" />
+    <option name="totallyTimeSpent" value="12144000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="225" y="9" width="1393" height="757" extended-state="0" />
@@ -585,16 +583,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/driver/Redis.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        <state relative-caret-position="39">
+          <caret line="16" column="19" lean-forward="true" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Cache.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        <state relative-caret-position="130">
+          <caret line="14" column="41" lean-forward="false" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
           <folding />
         </state>
       </provider>

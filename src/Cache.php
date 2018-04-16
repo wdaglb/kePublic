@@ -12,6 +12,7 @@ namespace ke;
 use ke\driver\Redis;
 
 /**
+ * @method static Redis select(int $index)
  * @method static Redis tag(string $tagname)
  * @method static Redis prefix(string $name)
  * @method static Cache get(string $key)

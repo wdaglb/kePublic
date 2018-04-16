@@ -33,6 +33,16 @@ class Redis
         $this->handle->select($this->option['select']);
     }
 
+    /**
+     * 选择数据库
+     * @param int $index
+     * @return Redis
+     */
+    public function select($index)
+    {
+        $this->handle->select($index);
+        return $this;
+    }
 
     /**
      * 设置标签
