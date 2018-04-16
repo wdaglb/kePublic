@@ -109,6 +109,8 @@ class DriverRedis
     {
         $this->getKey($key);
 
+        $value = serialize($value);
+
         if ($expire === 0) {
             return $this->handle->set($key, $value);
         } else {
@@ -137,7 +139,7 @@ class DriverRedis
     {
         $this->getKey($key);
         if ($this->exists($key)) {
-            return $this->handle->get($key);
+            return unserialize($this->handle->get($key));
         } else {
             return null;
         }
