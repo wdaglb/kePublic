@@ -9,7 +9,7 @@
 namespace ke\driver;
 
 
-class Redis
+class DriverRedis
 {
     private $option = [
         'host'=>'127.0.0.1',
@@ -36,7 +36,7 @@ class Redis
     /**
      * 选择数据库
      * @param int $index
-     * @return Redis
+     * @return DriverRedis
      */
     public function select($index)
     {
@@ -47,7 +47,7 @@ class Redis
     /**
      * 设置标签
      * @param array ...$name
-     * @return Redis
+     * @return DriverRedis
      */
     public function tag(...$name)
     {
@@ -59,7 +59,7 @@ class Redis
     /**
      * 设置前缀
      * @param array ...$name
-     * @return Redis
+     * @return DriverRedis
      */
     public function prefix(...$name)
     {

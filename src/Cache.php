@@ -9,12 +9,12 @@
 namespace ke;
 
 
-use ke\driver\Redis;
+use ke\driver\DriverRedis;
 
 /**
- * @method static Redis select(int $index)
- * @method static Redis tag(string $tagname)
- * @method static Redis prefix(string $name)
+ * @method static DriverRedis select(int $index)
+ * @method static DriverRedis tag(string $tagname)
+ * @method static DriverRedis prefix(string $name)
  * @method static Cache get(string $key)
  * @method static Cache set(string $key, mixed $value)
  * @method static Cache inc(string $key, int $value)
@@ -22,7 +22,7 @@ use ke\driver\Redis;
  * @method static Cache ttl(string $key)
  * @method static Cache rm(string $key)
  * @method static Cache exists(string $key)
- * @method static Redis clear(string $tagname)
+ * @method static DriverRedis clear(string $tagname)
  */
 class Cache
 {
@@ -33,7 +33,7 @@ class Cache
 
     public static function init($option = [])
     {
-        self::$handle = new Redis($option);
+        self::$handle = new DriverRedis($option);
     }
 
 

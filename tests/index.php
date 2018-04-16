@@ -30,7 +30,7 @@ var_dump(check_mobile($phone));
 
 
 echo '<p>cache</p>';
-$cache = new \ke\driver\Redis([]);
+$cache = new \ke\driver\DriverRedis([]);
 
 use ke\Cache;
 Cache::init();
@@ -50,7 +50,6 @@ Cache::tag('test')->prefix('test')->set('s', '前缀');
 var_dump(Cache::tag('test')->prefix('test')->get('s'));
 
 Cache::clear('test');
-
 
 
 
