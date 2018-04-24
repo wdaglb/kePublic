@@ -87,12 +87,13 @@ if (!function_exists('rand_letter')) {
      */
     function rand_letter($length)
     {
-        $str='abcdefghijklmnopqrstuvwxyz0123456789';
-        $max=strlen($str);
-        $ret='';
+        $str = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's'
+               ,'t', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+        $max = count($str);
+        $ret = '';
 
-        for($i=0;$i<$length;$i++){
-            $ret.=substr($str,mt_rand(1,$max),1);
+        for ($i = 0; $i < $length; $i++) {
+            $ret .= $str[mt_rand(0, $max - 1)];
         }
         return $ret;
     }
