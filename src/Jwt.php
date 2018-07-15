@@ -51,6 +51,9 @@ class Jwt
      */
     public function check($token)
     {
+        if (empty($token)) {
+            return false;
+        }
         $this->info = [];
         list($alg, $info, $sign) = explode('.', $token);
         $alg = json_decode($this->base64UrlDecode($alg), true);
