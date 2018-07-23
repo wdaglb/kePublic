@@ -55,34 +55,38 @@ class Jwt
             return false;
         }
         $this->info = [];
-        list($alg, $info, $sign) = explode('.', $token);
-        $alg = json_decode($this->base64UrlDecode($alg), true);
-        $info = json_decode($this->base64UrlDecode($info), true);
+        try {
+            list($alg, $info, $sign) = explode('.', $token);
+            $alg = json_decode($this->base64UrlDecode($alg), true);
+            $info = json_decode($this->base64UrlDecode($info), true);
 
-        if (empty($alg['alg']) || empty($alg['typ'])) {
+            if (empty($alg['alg']) || empty($alg['typ'])) {
+                return false;
+            }
+            // 不是JWT直接false
+            if ($alg['typ'] !== 'JWT') {
+                return false;
+            }
+            $algs = $alg;
+            $infos = $info;
+            // 重加密匹配
+            ksort($alg);
+            ksort($info);
+            $data = [];
+            $data[] = $this->base64UrlEncode(json_encode($alg));
+            $data[] = $this->base64UrlEncode(json_encode($info));
+            $signs = hash_hmac($algs['alg'], implode('.', $data), $this->pass);
+            if ($sign !== $signs) {
+                return false;
+            }
+            if (isset($infos['exp']) && $infos['exp'] < $_SERVER['REQUEST_TIME']) {
+                return false;
+            }
+            $this->info = $infos;
+            return true;
+        }catch (\Exception $e) {
             return false;
         }
-        // 不是JWT直接false
-        if ($alg['typ'] !== 'JWT') {
-            return false;
-        }
-        $algs = $alg;
-        $infos = $info;
-        // 重加密匹配
-        ksort($alg);
-        ksort($info);
-        $data = [];
-        $data[] = $this->base64UrlEncode(json_encode($alg));
-        $data[] = $this->base64UrlEncode(json_encode($info));
-        $signs = hash_hmac($algs['alg'], implode('.', $data), $this->pass);
-        if ($sign !== $signs) {
-            return false;
-        }
-        if (isset($infos['exp']) && $infos['exp'] < $_SERVER['REQUEST_TIME']) {
-            return false;
-        }
-        $this->info = $infos;
-        return true;
 
     }
 
