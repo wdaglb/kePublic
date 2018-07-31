@@ -19,6 +19,8 @@ class Jwt
 
     private $pass = '';
 
+    private $tok = '';
+
     public function __construct($pass)
     {
         $this->pass = $pass;
@@ -54,6 +56,7 @@ class Jwt
         if (empty($token)) {
             return false;
         }
+        $this->tok = $token;
         $this->info = [];
         try {
             list($alg, $info, $sign) = explode('.', $token);
@@ -103,6 +106,9 @@ class Jwt
             'alg'=>$type,
             'typ'=>'JWT'
         ];
+        if (isset($info['exp'])) {
+            unset($info['exp']);
+        }
         if ($exp > 0) {
             $info['exp'] = time() + $exp;
         }
@@ -114,6 +120,22 @@ class Jwt
         return implode('.', $data);
     }
 
+
+    /**
+     * 刷新token
+     * @param int $cyc 刷新周期
+     * @return string
+     */
+    public function refresh($cyc = 900)
+    {
+        // 刷新
+        if (isset($this->info['exp']) && ($this->info['exp'] - $_SERVER['REQUEST_TIME']) % $cyc === 0) {
+            $this->tok = $this->make($this->info, $this->info['exp']);
+            return $this->tok;
+        }
+
+        return $this->tok;
+    }
 
 
 }
