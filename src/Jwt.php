@@ -36,6 +36,10 @@ class Jwt
         return base64_decode(urldecode($r));
     }
 
+    /**
+     * 取原令牌数据
+     * @return string
+     */
     public function tok()
     {
         return $this->tok;
@@ -45,8 +49,11 @@ class Jwt
      * 获取令牌内info数据
      * @return array
      */
-    public function getData()
+    public function getData($key = null)
     {
+        if ($key) {
+            return isset($this->info[$key]) ? $this->info[$key] : null;
+        }
         return $this->info;
     }
 
