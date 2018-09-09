@@ -6,7 +6,9 @@
             "email": "1207877378@qq.com"
         }
     ],
-    "require": {},
+    "require": {
+        "ext-json": "^1.6"
+    },
     "autoload": {
         "psr-4": {"ke\\": "src/"},
         "files": [

@@ -17,13 +17,13 @@ class Jwt
 {
     private $info = [];
 
-    private $pass = '';
+    private $secret = '';
 
     private $tok = '';
 
-    public function __construct($pass)
+    public function __construct($secret)
     {
-        $this->pass = $pass;
+        $this->secret = $secret;
     }
 
     private function base64UrlEncode($r)
@@ -34,6 +34,11 @@ class Jwt
     private function base64UrlDecode($r)
     {
         return base64_decode(urldecode($r));
+    }
+
+    public function tok()
+    {
+        return $this->tok;
     }
 
     /**
@@ -78,7 +83,7 @@ class Jwt
             $data = [];
             $data[] = $this->base64UrlEncode(json_encode($alg));
             $data[] = $this->base64UrlEncode(json_encode($info));
-            $signs = hash_hmac($algs['alg'], implode('.', $data), $this->pass);
+            $signs = hash_hmac($algs['alg'], implode('.', $data), $this->secret);
             if ($sign !== $signs) {
                 return false;
             }
@@ -116,7 +121,7 @@ class Jwt
         ksort($info);
         $data[] = $this->base64UrlEncode(json_encode($alg));
         $data[] = $this->base64UrlEncode(json_encode($info));
-        $data[] = hash_hmac($type, implode('.', $data), $this->pass);
+        $data[] = hash_hmac($type, implode('.', $data), $this->secret);
         return implode('.', $data);
     }
 
