@@ -94,17 +94,17 @@ class Jwt
             if ($sign !== $signs) {
                 return false;
             }
+            $this->info = $infos;
             if (isset($infos['exp']) && $infos['exp'] < $_SERVER['REQUEST_TIME']) {
                 return false;
             }
-            $this->info = $infos;
             return true;
         }catch (\Exception $e) {
             return false;
         }
 
     }
-
+	
     /**
      * 获取加密后的令牌
      * @param array $info
